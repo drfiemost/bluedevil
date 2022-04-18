@@ -33,7 +33,7 @@ class QDBusPendingCallWatcher;
 namespace BlueDevil {
     class Adapter;
     class Device;
-};
+}
 using namespace BlueDevil;
 
 class KDE_EXPORT BlueDevilDaemon

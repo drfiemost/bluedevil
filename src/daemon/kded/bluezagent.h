@@ -30,7 +30,7 @@
 class QProcess;
 namespace BlueDevil {
     class Adapter;
-};
+}
 
 /**
  * @internal
