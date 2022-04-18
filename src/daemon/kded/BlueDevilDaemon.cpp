@@ -141,7 +141,7 @@ BlueDevilDaemon::~BlueDevilDaemon()
 
     delete d;
 }
-
+#if 0
 static Adapter *adapterForAddress(const QString &address)
 {
     Q_FOREACH (Adapter *adapter, Manager::self()->adapters()) {
@@ -151,7 +151,7 @@ static Adapter *adapterForAddress(const QString &address)
     }
     return 0;
 }
-
+#endif
 void BlueDevilDaemon::login1PrepareForSleep(bool active)
 {
     if (active) {
