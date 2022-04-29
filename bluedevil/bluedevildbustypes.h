@@ -1,16 +1,7 @@
-Please follow the bluedevil style before submitting patches.
-libbluedevil follows the same style as kdelibs.
-
-You have a reference to this style on this website:
-http://techbase.kde.org/Policies/Kdelibs_Coding_Style
-
-All copyright headers are unified with the following style:
-
 /*****************************************************************************
- * This file is part of the KDE project                                      *
  * This file is part of the BlueDevil project                                *
  *                                                                           *
- * Copyright (C) 2010 AuthorName Surname Surname <author@server.org>         *
+ * Copyright (C) 2013 Daniel Schaal <farbing@web.de>                         *
  *                                                                           *
  * This library is free software; you can redistribute it and/or             *
  * modify it under the terms of the GNU Library General Public               *
@@ -27,3 +18,17 @@ All copyright headers are unified with the following style:
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,      *
  * Boston, MA 02110-1301, USA.                                               *
  *****************************************************************************/
+
+#ifndef dbustypes_H
+#define dbustypes_H
+
+#include <QVariantMap>
+#include <QDBusObjectPath>
+
+typedef QMap<QString,QVariantMap> QVariantMapMap;
+Q_DECLARE_METATYPE(QVariantMapMap)
+
+typedef QMap<QDBusObjectPath, QVariantMapMap> DBusManagerStruct;
+Q_DECLARE_METATYPE(DBusManagerStruct)
+
+#endif // dbustypes_H

@@ -1,16 +1,8 @@
-Please follow the bluedevil style before submitting patches.
-libbluedevil follows the same style as kdelibs.
-
-You have a reference to this style on this website:
-http://techbase.kde.org/Policies/Kdelibs_Coding_Style
-
-All copyright headers are unified with the following style:
-
 /*****************************************************************************
- * This file is part of the KDE project                                      *
  * This file is part of the BlueDevil project                                *
  *                                                                           *
- * Copyright (C) 2010 AuthorName Surname Surname <author@server.org>         *
+ * Copyright (C) 2011 Rafael Fernández López <ereslibre@kde.org>             *
+ * Copyright (C) 2011 UFO Coders <info@ufocoders.com>                        *
  *                                                                           *
  * This library is free software; you can redistribute it and/or             *
  * modify it under the terms of the GNU Library General Public               *
@@ -27,3 +19,37 @@ All copyright headers are unified with the following style:
  * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,      *
  * Boston, MA 02110-1301, USA.                                               *
  *****************************************************************************/
+
+#ifndef ADAPTERTEST_H
+#define ADAPTERTEST_H
+
+#include <QtCore/QObject>
+#include <QtCore/QThread>
+
+namespace BlueDevil {
+    class Adapter;
+    class Device;
+}
+
+using namespace BlueDevil;
+
+class AdapterTest
+    : public QThread
+{
+    Q_OBJECT
+
+public:
+    AdapterTest(QObject *parent = 0);
+    virtual ~AdapterTest();
+
+private Q_SLOTS:
+    void adapterAdded(Adapter *adapter);
+    void adapterRemoved(Adapter *adapter);
+    void usableAdapterChanged(Adapter *adapter);
+    void allAdaptersRemoved();
+
+protected:
+    virtual void run();
+};
+
+#endif // ADAPTERTEST_H
