@@ -24,9 +24,7 @@ kde4_add_plugin(kcm_bluedevildevices ${kcm_bluedevildevices_PART_SRCS})
 kde4_add_plugin(kcm_bluedeviladapters ${kcm_bluedeviladapters_PART_SRCS})
 kde4_add_plugin(kcm_bluedeviltransfer ${kcm_bluedeviltransfer_PART_SRCS} ${kcm_bluedeviltransfer_PART_SRCS_UI})
 
-qt4_automoc(${kcm_bluedevildevices}
-            ${kcm_bluedeviladapters}
-            ${kcm_bluedeviltransfer})
+set(CMAKE_AUTOMOC ON)
 
 target_link_libraries(kcm_bluedevildevices ${KDE4_KIO_LIBS} ${QT_QTGUI_LIBRARY} bluedevil)
 target_link_libraries(kcm_bluedeviladapters ${KDE4_KIO_LIBS} ${QT_QTGUI_LIBRARY} bluedevil)
