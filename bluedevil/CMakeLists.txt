@@ -21,6 +21,11 @@ QT4_ADD_DBUS_INTERFACE(libbluedevil_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/bluez/org.b
 QT4_ADD_DBUS_INTERFACE(libbluedevil_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/bluez/org.bluez.Device1.xml bluezdevice1)
 
 set(CMAKE_AUTOMOC ON)
+set_property(SOURCE dbusobjectmanager.h
+                    dbusproperties.h
+                    bluezadapter1.h
+                    bluezagentmanager1.h
+                    bluezdevice1.h PROPERTY SKIP_AUTOMOC ON)
 
 add_library(bluedevil SHARED ${libbluedevil_SRCS})
 
