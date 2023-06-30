@@ -60,7 +60,7 @@ void DeviceReceiver::deviceFound(Device *device)
     connect(device, SIGNAL(propertyChanged(QString,QVariant)), this, SLOT(devicePropertyChanged(QString,QVariant)));
 }
 
-void DeviceReceiver::devicePropertyChanged(const QString &property, const QVariant &value)
+void DeviceReceiver::devicePropertyChanged(const QString &property, [[maybe_unused]] const QVariant &value)
 {
     Device *device = static_cast<Device*>(sender());
 
@@ -77,7 +77,7 @@ void DeviceReceiver::devicePropertyChanged(const QString &property, const QVaria
     qDebug();
 }
 
-void DeviceReceiver::adapterAdded(Adapter *adapter)
+void DeviceReceiver::adapterAdded([[maybe_unused]] Adapter *adapter)
 {
     qDebug() << "*** An adapter has been connected.";
     qDebug();

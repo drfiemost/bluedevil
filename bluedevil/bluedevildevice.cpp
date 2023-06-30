@@ -110,7 +110,9 @@ QStringList Device::Private::_k_stringListToUpper(const QStringList& list)
     return upperList;
 }
 
-void Device::Private::_k_propertyChanged(const QString &interface_name, const QVariantMap &changed_values, const QStringList &invalidated_values)
+void Device::Private::_k_propertyChanged([[maybe_unused]] const QString &interface_name,
+                                         const QVariantMap &changed_values,
+                                         [[maybe_unused]] const QStringList &invalidated_values)
 {
   QVariantMap::const_iterator i;
   for(i = changed_values.constBegin(); i != changed_values.constEnd(); ++i) {

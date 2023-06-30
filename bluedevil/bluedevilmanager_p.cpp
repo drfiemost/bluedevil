@@ -204,7 +204,7 @@ void ManagerPrivate::_k_bluezServiceUnregistered()
     clean();
 }
 
-void ManagerPrivate::_k_bluezAdapterPoweredChanged(bool powered)
+void ManagerPrivate::_k_bluezAdapterPoweredChanged([[maybe_unused]] bool powered)
 {
     //If the power change has had no effect on usableAdpater, do nothing
     Adapter *adapter = findUsableAdapter();

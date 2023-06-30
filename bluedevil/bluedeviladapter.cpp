@@ -83,7 +83,9 @@ void Adapter::Private::_k_deviceRemoved(const QString &objectPath)
     }
 }
 
-void Adapter::Private::_k_propertyChanged(const QString &interface_name, const QVariantMap &changed_properties, const QStringList &invalidated_properties)
+void Adapter::Private::_k_propertyChanged([[maybe_unused]] const QString &interface_name,
+                                          const QVariantMap &changed_properties,
+                                          [[maybe_unused]] const QStringList &invalidated_properties)
 {
     QVariantMap::const_iterator i;
     for(i = changed_properties.constBegin(); i != changed_properties.constEnd(); ++i) {
@@ -108,7 +110,8 @@ void Adapter::Private::_k_propertyChanged(const QString &interface_name, const Q
     }
 }
 
-void Adapter::Private::_k_devicePropertyChanged(const QString& property, const QVariant& value)
+void Adapter::Private::_k_devicePropertyChanged([[maybe_unused]] const QString& property,
+                                                [[maybe_unused]] const QVariant& value)
 {
     Device *device = qobject_cast<Device*>(m_q->sender());
     Q_ASSERT(device);
