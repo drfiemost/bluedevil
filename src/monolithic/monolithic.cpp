@@ -30,6 +30,8 @@
 #include <bluedevil/bluedevil.h>
 #include <kactioncollection.h>
 
+#include <algorithm>
+
 using namespace BlueDevil;
 
 Monolithic::Monolithic(QObject* parent)
@@ -418,9 +420,9 @@ QList< QAction* > Monolithic::actionsForAdapter(Adapter* adapter)
         return actions;
     }
 
-    qStableSort(devices.begin(), devices.end(), sortDevices);
-    QAction *action = 0;
-    Device *lastDevice = 0;
+    std::stable_sort(devices.begin(), devices.end(), sortDevices);
+    QAction *action = nullptr;
+    Device *lastDevice = nullptr;
     Q_FOREACH (Device *device, devices) {
         action = actionForDevice(device, lastDevice);
         actions << action;
