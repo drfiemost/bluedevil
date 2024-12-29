@@ -314,7 +314,7 @@ void BluetoothDevicesDelegate::paint(QPainter *painter, const QStyleOptionViewIt
 QSize BluetoothDevicesDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const int width = QStyledItemDelegate::sizeHint(option, index).width();
-    const int height = qMax( QFontMetrics(kapp->font()).height() * 2 + QFontMetrics(kapp->font()).xHeight(), (int)(IconSize(KIconLoader::Dialog) * 1.5)) + 10;
+    const int height = std::max( QFontMetrics(kapp->font()).height() * 2 + QFontMetrics(kapp->font()).xHeight(), (int)(IconSize(KIconLoader::Dialog) * 1.5)) + 10;
     return QSize(width, height);
 }
 

@@ -82,7 +82,7 @@ AdapterSettings::AdapterSettings(Adapter *adapter, KCModule *parent)
     m_discoverTime->setValue(adapter->discoverableTimeout() / 60);
     m_discoverTime->setTickPosition(QSlider::TicksBelow);
     m_discoverTime->setTickInterval(1);
-    m_discoverTimeOrig = qMax((quint32) 1, adapter->discoverableTimeout() / 60);
+    m_discoverTimeOrig = std::max((quint32) 1, adapter->discoverableTimeout() / 60);
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(m_discoverTime);
@@ -191,7 +191,7 @@ void AdapterSettings::readChanges()
     m_hiddenOrig = !m_adapter->isDiscoverable();
     m_alwaysVisibleOrig = m_adapter->isDiscoverable() && !m_adapter->discoverableTimeout();
     m_temporaryVisibleOrig = m_adapter->isDiscoverable() && m_adapter->discoverableTimeout();
-    m_discoverTimeOrig = qMax((quint32) 1, m_adapter->discoverableTimeout() / 60);
+    m_discoverTimeOrig = std::max((quint32) 1, m_adapter->discoverableTimeout() / 60);
     m_poweredOrig = m_adapter->isPowered();
 
     m_name->setText(m_nameOrig);
